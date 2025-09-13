@@ -1,0 +1,9 @@
+---
+default_tools: ["standardrb", "rubocop", "markdown_lint"]
+executor: concurrent
+comparison_branch: main
+changed_files: false
+filter_messages: false
+logging: light
+colorize: true
+message_format: "%lcyan10tool| [%myellow40rule] %bred60loc  %e-90body"
