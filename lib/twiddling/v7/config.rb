@@ -2,7 +2,6 @@ module Twiddling
   module V7
     class Config
       HEADER_SIZE = 128
-      CHORD_ENTRY_SIZE = 8
 
       # Button bitmask bit positions
       BUTTON_BITS = {
@@ -73,7 +72,7 @@ module Twiddling
       def binary_chords
         offsets = compute_string_offsets
         chords.each_with_index.map { |chord, i|
-          chord.to_binary(string_table_offset: offsets[i])
+          Writer::Chord.new(chord, string_table_offset: offsets[i]).to_binary
         }.join
       end
 
@@ -128,7 +127,7 @@ module Twiddling
         end
 
         def build_string_table(data, chord_count)
-          table_offset = HEADER_SIZE + (chord_count * CHORD_ENTRY_SIZE)
+          table_offset = HEADER_SIZE + (chord_count * ChordConstants::ENTRY_SIZE)
           table_data = data[table_offset..]
           return nil unless table_data && !table_data.empty?
 
@@ -137,8 +136,8 @@ module Twiddling
 
         def parse_chords(data, chord_count, string_table)
           chord_count.times.map { |i|
-            offset = HEADER_SIZE + (i * CHORD_ENTRY_SIZE)
-            Chord.from_binary(data[offset, CHORD_ENTRY_SIZE], string_table: string_table)
+            offset = HEADER_SIZE + (i * ChordConstants::ENTRY_SIZE)
+            Reader::Chord.new(data[offset, ChordConstants::ENTRY_SIZE], string_table: string_table).parse
           }
         end
       end
