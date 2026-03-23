@@ -5,3 +5,4 @@ end
 
 require_relative "v7/string_table"
 require_relative "v7/chord"
+require_relative "v7/config"
