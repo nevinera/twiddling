@@ -6,8 +6,7 @@ module Twiddling
       ATTR_NAMES = %i[
         version format_version flags_1 flags_2 flags_3
         idle_time key_repeat reserved_0e reserved_10
-        thumb_modifiers dedicated_buttons reserved_54
-        index_table chords
+        settings index_table chords
       ].freeze
 
       attr_reader(*ATTR_NAMES)
@@ -25,6 +24,11 @@ module Twiddling
       def write(path) = File.binwrite(path, to_binary)
 
       def chord_count = chords.length
+
+      # Convenience delegators to settings
+      def thumb_modifiers = settings.thumb_modifiers
+
+      def dedicated_buttons = settings.dedicated_buttons
     end
   end
 end

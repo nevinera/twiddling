@@ -39,9 +39,7 @@ module Twiddling
         def parse_header_regions
           {
             reserved_10: @data[0x10, 48],
-            thumb_modifiers: @data[0x40, 16].unpack("V4"),
-            dedicated_buttons: @data[0x50, 4].unpack("C4"),
-            reserved_54: @data[0x54, 12],
+            settings: Reader::Settings.new(@data[0x40, 32]).parse,
             index_table: @data[0x60, 32].unpack("C32")
           }
         end

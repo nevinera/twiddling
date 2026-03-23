@@ -24,7 +24,7 @@ module Twiddling
         private
 
         def header_binary
-          header_fields + @config.reserved_10 + settings_fields + index_table_field
+          header_fields + @config.reserved_10 + settings_binary + index_table_field
         end
 
         def header_fields
@@ -36,10 +36,8 @@ module Twiddling
           ].pack("VCCCCvvvv")
         end
 
-        def settings_fields
-          @config.thumb_modifiers.pack("V4") +
-            @config.dedicated_buttons.pack("C4") +
-            @config.reserved_54
+        def settings_binary
+          Writer::Settings.new(@config.settings).to_binary
         end
 
         def index_table_field
