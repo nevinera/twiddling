@@ -15,9 +15,17 @@ module Twiddling
         ATTR_NAMES.each { |name| instance_variable_set(:"@#{name}", attrs[name]) }
       end
 
-      def self.from_file(path) = Reader::Config.new(File.binread(path)).parse
+      def self.from_file(path)
+        config = Reader::Config.new(File.binread(path)).parse
+        config.validate!
+        config
+      end
 
-      def self.from_binary(data) = Reader::Config.new(data).parse
+      def self.from_binary(data)
+        config = Reader::Config.new(data).parse
+        config.validate!
+        config
+      end
 
       def to_binary = Writer::Config.new(self).to_binary
 
@@ -62,6 +70,10 @@ module Twiddling
         with(settings: new_settings)
       end
 
+      def validate = Validator.new(self).validate
+
+      def validate! = Validator.new(self).validate!
+
       # Convenience delegators to settings
       def thumb_modifiers = settings.thumb_modifiers
 
@@ -74,6 +86,13 @@ module Twiddling
       end
 
       def with(**overrides)
+        config = self.class.new(attrs.merge(overrides))
+        config.validate!
+        config
+      end
+
+      # Builds a new Config without validation - only for testing.
+      def with_no_validate(**overrides)
         self.class.new(attrs.merge(overrides))
       end
     end
