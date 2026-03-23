@@ -32,7 +32,7 @@ if ENV["SIMPLECOV"]
 end
 
 gem_root = File.expand_path("../..", __FILE__)
-FIXTURES_DIRECTORY = File.join(gem_root, "spec", "fixtures")
+FIXTURES_DIRECTORY = File.join(gem_root, "fixtures")
 TEMP_DIRECTORY = File.join(gem_root, "tmp")
 
 require File.expand_path("../../lib/twiddling", __FILE__)
