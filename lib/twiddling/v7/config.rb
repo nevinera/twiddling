@@ -52,6 +52,16 @@ module Twiddling
         table
       end
 
+      # Returns a new Config with the given attributes replaced.
+      def set(**overrides)
+        with(**overrides)
+      end
+
+      # Returns a new Config with the given Settings.
+      def with_settings(new_settings)
+        with(settings: new_settings)
+      end
+
       # Convenience delegators to settings
       def thumb_modifiers = settings.thumb_modifiers
 
