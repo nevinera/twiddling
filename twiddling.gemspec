@@ -41,4 +41,6 @@ Gem::Specification.new do |spec|
   spec.add_development_dependency "debug", "~> 1.7"
   spec.add_development_dependency "mdl", "~> 0.12"
   spec.add_development_dependency "quiet_quality", "~> 1.5"
+
+  spec.add_dependency "bindata", "~> 2.5"
 end

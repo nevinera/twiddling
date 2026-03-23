@@ -1,10 +1,7 @@
-require "json"
-require "yaml"
+require "bindata"
 
 module Twiddling
   Error = Class.new(StandardError)
-
-  def self.foo
-    55
-  end
 end
+
+require_relative "twiddling/v7"
