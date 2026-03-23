@@ -82,7 +82,7 @@ describe Twiddling::V7::Chord do
     context "multi-char chord with string table" do
       let(:data) { [0x02, 0x00, 0x00, 0x00, 0x07, 0x00, 0x00, 0x00].pack("C*") }
       let(:table_data) { [0x0002, 0x0017, 0x0002, 0x0008, 0x0000, 0x0000].pack("v*") }
-      let(:string_table) { Twiddling::V7::StringTable.new(table_data) }
+      let(:string_table) { Twiddling::V7::Reader::StringTable.new(table_data).parse }
 
       subject(:chord) { described_class.from_binary(data, string_table: string_table) }
 

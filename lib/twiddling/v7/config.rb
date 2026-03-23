@@ -38,9 +38,7 @@ module Twiddling
         ATTR_NAMES.each { |name| instance_variable_set(:"@#{name}", attrs[name]) }
       end
 
-      def self.from_file(path)
-        from_binary(File.binread(path))
-      end
+      def self.from_file(path) = from_binary(File.binread(path))
 
       def self.from_binary(data)
         header = parse_header(data)
@@ -49,17 +47,11 @@ module Twiddling
         new(header.merge(chords: chords))
       end
 
-      def to_binary
-        binary_header + binary_chords + binary_string_table
-      end
+      def to_binary = binary_header + binary_chords + binary_string_table
 
-      def write(path)
-        File.binwrite(path, to_binary)
-      end
+      def write(path) = File.binwrite(path, to_binary)
 
-      def chord_count
-        chords.length
-      end
+      def chord_count = chords.length
 
       private
 
@@ -86,17 +78,25 @@ module Twiddling
       end
 
       def binary_string_table
-        StringTable.from_entries(chords.filter_map(&:string_keys)).to_binary
+        Writer::StringTable.new(build_output_string_table).to_binary
+      end
+
+      def build_output_string_table
+        entries = []
+        offset = 0
+        chords.each do |chord|
+          next unless chord.string_keys
+          entries << StringTableEntry.new(keys: chord.string_keys, byte_offset: offset)
+          offset += (chord.string_keys.length + 1) * 4
+        end
+        StringTable.new(entries)
       end
 
       def compute_string_offsets
-        offset = 0
+        table = build_output_string_table
         chords.map { |chord|
-          if chord.string_keys
-            current = offset
-            offset += (chord.string_keys.length + 1) * 4
-            current
-          end
+          next unless chord.string_keys
+          table.entries.find { |e| e.keys == chord.string_keys }&.byte_offset
         }
       end
 
@@ -130,7 +130,9 @@ module Twiddling
         def build_string_table(data, chord_count)
           table_offset = HEADER_SIZE + (chord_count * CHORD_ENTRY_SIZE)
           table_data = data[table_offset..]
-          (table_data && !table_data.empty?) ? StringTable.new(table_data) : nil
+          return nil unless table_data && !table_data.empty?
+
+          Reader::StringTable.new(table_data).parse
         end
 
         def parse_chords(data, chord_count, string_table)

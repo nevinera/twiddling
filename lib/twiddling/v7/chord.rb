@@ -71,7 +71,7 @@ module Twiddling
 
       def self.from_binary(data, string_table: nil)
         bitmask, modifier_type, keycode = data.unpack("Vvv")
-        string_keys = decode_string_keys(modifier_type, string_table)
+        string_keys = resolve_string_keys(modifier_type, string_table)
         new(bitmask: bitmask, modifier_type: modifier_type, keycode: keycode, string_keys: string_keys)
       end
 
@@ -84,9 +84,7 @@ module Twiddling
         [bitmask, mod_type, keycode].pack("Vvv")
       end
 
-      def type_byte
-        modifier_type & 0xFF
-      end
+      def type_byte = modifier_type & 0xFF
 
       def type_name
         case type_byte
@@ -96,17 +94,11 @@ module Twiddling
         end
       end
 
-      def modifier_byte
-        (modifier_type >> 8) & 0xFF
-      end
+      def modifier_byte = (modifier_type >> 8) & 0xFF
 
-      def mouse_mode?
-        bitmask & MOUSE_MODE_FLAG != 0
-      end
+      def mouse_mode? = bitmask & MOUSE_MODE_FLAG != 0
 
-      def key_name
-        HID_KEYS[keycode]
-      end
+      def key_name = HID_KEYS[keycode]
 
       def modifier_names
         MODIFIERS.filter_map { |bit, name| name if modifier_byte & bit != 0 }
@@ -120,15 +112,14 @@ module Twiddling
         other.is_a?(self.class) && to_binary == other.to_binary && string_keys == other.string_keys
       end
 
-      def self.decode_string_keys(modifier_type, string_table)
+      def self.resolve_string_keys(modifier_type, string_table)
         return nil unless string_table
         return nil unless (modifier_type & 0xFF) == TYPE_MULTICHAR
 
         offset = (modifier_type >> 8) & 0xFF
-        keys = string_table.read_entry(offset)
-        keys.empty? ? nil : keys
+        string_table.entry_at_offset(offset)&.keys
       end
-      private_class_method :decode_string_keys
+      private_class_method :resolve_string_keys
     end
   end
 end
