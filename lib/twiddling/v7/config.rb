@@ -70,9 +70,11 @@ module Twiddling
         with(settings: new_settings)
       end
 
-      def validate = Validator.new(self).validate
+      def validator = @validator ||= Validator.new(self)
 
-      def validate! = Validator.new(self).validate!
+      def validate = validator.validate
+
+      def validate! = validator.validate!
 
       # Convenience delegators to settings
       def thumb_modifiers = settings.thumb_modifiers
