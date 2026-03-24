@@ -139,18 +139,18 @@ F2L: cmd+shift+a
 
 #### Device functions
 
-| Name | Description |
-|------|-------------|
-| mouse_toggle | Toggle mouse mode |
-| left_click | Left mouse click |
-| middle_click | Middle mouse click |
-| right_click | Right mouse click |
-| scroll_toggle | Toggle scroll mode |
-| speed_cycle | Cycle mouse speed |
-| speed_increase | Increase mouse speed |
-| speed_decrease | Decrease mouse speed |
-| print_stats | Print device stats |
-| config_cycle | Cycle configuration |
+| Name            | Description          |
+|-----------------|----------------------|
+| mouse_toggle    | Toggle mouse mode    |
+| left_click      | Left mouse click     |
+| middle_click    | Middle mouse click   |
+| right_click     | Right mouse click    |
+| scroll_toggle   | Toggle scroll mode   |
+| speed_cycle     | Cycle mouse speed    |
+| speed_increase  | Increase mouse speed |
+| speed_decrease  | Decrease mouse speed |
+| print_stats     | Print device stats   |
+| config_cycle    | Cycle configuration  |
 
 #### Strings
 
