@@ -66,6 +66,18 @@ bin/twiddling search my.cfg --button T4 --button 0M
 
 All filters are combined as AND conditions.
 
+### twiddling diff
+
+Compare two configs, showing changed settings and chords:
+
+```sh
+bin/twiddling diff old.cfg new.cfg
+bin/twiddling diff base.tw7 mine.tw7 --no-color
+```
+
+Output is colorized by default (red=removed, yellow=changed,
+green=added).
+
 ### Standalone conversion scripts
 
 These are really necessary (and I recommend `twiddling convert`
