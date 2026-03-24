@@ -8,7 +8,9 @@ module Twiddling
           help                       Show this help message
           read <file>                Read a .cfg or .tw7 file
           convert <input> <output>   Convert between .cfg and .tw7 formats
-          search <file> [filters]   Search chords by button or result
+          search <file> [filters]    Search chords by button or result
+
+        Run `twiddling <subcommand> -h` for details on each command.
       TEXT
 
       def initialize(argv:, stdout: $stdout, stderr: $stderr)

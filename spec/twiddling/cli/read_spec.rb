@@ -22,6 +22,24 @@ describe Twiddling::Cli::Read do
     end
   end
 
+  describe "--help" do
+    let(:argv) { ["--help"] }
+
+    it "prints help to stdout" do
+      cli.run
+      expect(stdout.string).to include("Usage: twiddling read")
+    end
+  end
+
+  describe "-h" do
+    let(:argv) { ["-h"] }
+
+    it "prints help to stdout" do
+      cli.run
+      expect(stdout.string).to include("Usage: twiddling read")
+    end
+  end
+
   describe "with no arguments" do
     let(:argv) { [] }
 
