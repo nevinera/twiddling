@@ -1,3 +1,9 @@
 #!/usr/bin/env ruby
 
-warn "Not Yet Implemented"
+require_relative "../lib/twiddling"
+
+begin
+  Twiddling::Cli::Twiddling.new(argv: ARGV).run
+rescue Twiddling::Cli::ExitException => e
+  abort e.message
+end

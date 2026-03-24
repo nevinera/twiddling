@@ -5,3 +5,4 @@ module Twiddling
 end
 
 require_relative "twiddling/v7"
+require_relative "twiddling/cli"
