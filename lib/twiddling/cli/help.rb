@@ -9,6 +9,7 @@ module Twiddling
           read <file>                Read a .cfg or .tw7 file
           convert <input> <output>   Convert between .cfg and .tw7 formats
           search <file> [filters]    Search chords by button or result
+          diff <file_a> <file_b>    Show differences between two configs
 
         Run `twiddling <subcommand> -h` for details on each command.
       TEXT

@@ -5,6 +5,7 @@ module Twiddling
         "read" => :Read,
         "convert" => :Convert,
         "search" => :Search,
+        "diff" => :Diff,
         "help" => :Help
       }.freeze
 
