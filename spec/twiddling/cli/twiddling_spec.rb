@@ -16,8 +16,19 @@ describe Twiddling::Cli::Twiddling do
   describe "with no subcommand" do
     let(:argv) { [] }
 
-    it "raises ExitException with usage" do
-      expect { cli.run }.to raise_error(Twiddling::Cli::ExitException, /Usage/)
+    it "prints help" do
+      cli.run
+      expect(stdout.string).to include("Usage: twiddling")
+      expect(stdout.string).to include("read")
+    end
+  end
+
+  describe "help subcommand" do
+    let(:argv) { ["help"] }
+
+    it "prints help" do
+      cli.run
+      expect(stdout.string).to include("Usage: twiddling")
     end
   end
 

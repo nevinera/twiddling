@@ -2,7 +2,8 @@ module Twiddling
   module Cli
     class Twiddling
       SUBCOMMANDS = {
-        "read" => :Read
+        "read" => :Read,
+        "help" => :Help
       }.freeze
 
       def initialize(argv:, stdout: $stdout, stderr: $stderr)
@@ -12,8 +13,7 @@ module Twiddling
       end
 
       def run
-        subcommand = @argv.shift
-        raise ExitException, usage unless subcommand
+        subcommand = @argv.shift || "help"
         klass = resolve(subcommand)
         klass.new(argv: @argv, stdout: @stdout, stderr: @stderr).run
       end
@@ -22,12 +22,8 @@ module Twiddling
 
       def resolve(name)
         const = SUBCOMMANDS[name]
-        raise ExitException, "Unknown subcommand: #{name}\n#{usage}" unless const
+        raise ExitException, "Unknown subcommand: #{name}\n\n#{Help::HELP_TEXT}" unless const
         Cli.const_get(const)
-      end
-
-      def usage
-        "Usage: twiddling <subcommand> [options]\n\nSubcommands: #{SUBCOMMANDS.keys.join(", ")}"
       end
     end
   end
