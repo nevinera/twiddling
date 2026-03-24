@@ -4,6 +4,7 @@ module Twiddling
       SUBCOMMANDS = {
         "read" => :Read,
         "convert" => :Convert,
+        "search" => :Search,
         "help" => :Help
       }.freeze
 
