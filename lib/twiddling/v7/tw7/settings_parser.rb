@@ -54,7 +54,7 @@ module Twiddling
 
         def build_thumb_modifiers(raw)
           [
-            thumb_val(raw, "t1_modifier", :num),
+            thumb_val(raw, "t1_modifier", :none),
             thumb_val(raw, "t2_modifier", :l_option),
             thumb_val(raw, "t3_modifier", :l_control),
             thumb_val(raw, "t4_modifier", :l_shift)

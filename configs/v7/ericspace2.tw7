@@ -2,9 +2,9 @@ key_repeat: false
 haptic: false
 nav_direction: 1
 t1_modifier: l_command
-t2_modifier: num        # what is this? Should be unbound, based on the tuner
+t2_modifier: none
 t3_modifier: l_shift
-t4_modifier: num        # what is this? Should be unbound, based on the tuner
+t4_modifier: none
 f0l_dedicated: none
 f0m_dedicated: none
 f0r_dedicated: none

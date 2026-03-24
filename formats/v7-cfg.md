@@ -88,13 +88,13 @@ values (one per thumb button, T1-T4):
 
 | Code | Modifier |
 |------|----------|
-| 0 | Num (default for T1) |
+| 0 | None (default for T1) |
 | 1 | LControl (default for T3) |
 | 2 | LShift (default for T4) |
 | 3 | LOption / Alt (default for T2) |
 | 4 | LCommand / Windows |
 
-Default assignments: T1=Num(0), T2=LOption(3), T3=LControl(1), T4=LShift(2).
+Default assignments: T1=None(0), T2=LOption(3), T3=LControl(1), T4=LShift(2).
 
 ### Dedicated button functions (offsets 0x50-0x53)
 

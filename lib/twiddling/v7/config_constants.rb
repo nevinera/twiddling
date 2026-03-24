@@ -16,7 +16,7 @@ module Twiddling
 
       # Thumb button modifier assignment codes (offsets 0x40-0x4F)
       THUMB_MODIFIERS = {
-        0 => :num, 1 => :l_control, 2 => :l_shift,
+        0 => :none, 1 => :l_control, 2 => :l_shift,
         3 => :l_option, 4 => :l_command
       }.freeze
 

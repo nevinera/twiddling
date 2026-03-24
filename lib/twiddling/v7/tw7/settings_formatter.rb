@@ -15,7 +15,7 @@ module Twiddling
           nav_sensitivity: 4,
           nav_invert_x: false,
           nav_direction: 0,
-          t1_modifier: :num,
+          t1_modifier: :none,
           t2_modifier: :l_option,
           t3_modifier: :l_control,
           t4_modifier: :l_shift,

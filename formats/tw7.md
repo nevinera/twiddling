@@ -50,12 +50,12 @@ defaults from an empty tuner config.
 
 | Name | Type | Default | Description |
 |------|------|---------|-------------|
-| t1_modifier | string | num | T1 modifier (see below) |
+| t1_modifier | string | none | T1 modifier (see below) |
 | t2_modifier | string | l_option | T2 modifier |
 | t3_modifier | string | l_control | T3 modifier |
 | t4_modifier | string | l_shift | T4 modifier |
 
-Modifier values: num, l_control, l_shift, l_option, l_command.
+Modifier values: none, l_control, l_shift, l_option, l_command.
 
 ### Dedicated button functions
 
