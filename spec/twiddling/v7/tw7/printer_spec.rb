@@ -88,6 +88,22 @@ describe Twiddling::V7::Tw7::Printer do
     end
   end
 
+  describe "edge cases" do
+    it "formats unknown chord types as hex" do
+      result = Twiddling::V7::Tw7::EffectFormatter.format_effect(
+        Twiddling::V7::Chord.new(bitmask: 0, modifier_type: 0x0099, keycode: 0)
+      )
+      expect(result).to eq("0x0099")
+    end
+
+    it "formats uppercase letters in multichar strings" do
+      result = Twiddling::V7::Tw7::EffectFormatter.string_key_to_char(
+        {modifier: 0x2002, hid_code: 0x04}
+      )
+      expect(result).to eq("A")
+    end
+  end
+
   describe "grouping" do
     let(:fixture_name) { "large.cfg" }
 

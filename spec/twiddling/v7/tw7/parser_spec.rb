@@ -146,6 +146,13 @@ describe Twiddling::V7::Tw7::Parser do
     end
   end
 
+  describe "error handling" do
+    it "reports line numbers on parse errors" do
+      expect { described_class.new("1R: zzz").parse }
+        .to raise_error(ArgumentError, /Line 1/)
+    end
+  end
+
   describe "comments" do
     it "strips inline comments" do
       config = described_class.new("1R: c # a comment").parse

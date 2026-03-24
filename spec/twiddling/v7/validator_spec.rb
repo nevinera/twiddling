@@ -30,6 +30,18 @@ describe Twiddling::V7::Validator do
       end
     end
 
+    context "chord count overflow" do
+      let(:bad_config) do
+        chords = (0..0xFFFF).map { |i| Twiddling::V7::Chord.new(bitmask: i, modifier_type: 0x0002, keycode: 0x04) }
+        config.send(:with_no_validate, chords: chords + [chords.first])
+      end
+
+      it "reports the error" do
+        errors = described_class.new(bad_config).validate
+        expect(errors.any? { |e| e.field == :chord_count }).to be true
+      end
+    end
+
     context "duplicate bitmasks" do
       let(:bad_config) do
         chord = Twiddling::V7::Chord.new(bitmask: 0x02, modifier_type: 0x0002, keycode: 0x04)
