@@ -60,7 +60,7 @@ module Twiddling
           else
             ButtonFormatter.finger_part(chord.bitmask)
           end
-          effect = EffectFormatter.format(chord)
+          effect = EffectFormatter.format_effect(chord)
           @io.puts "#{indent}#{buttons}: #{effect}"
         end
       end

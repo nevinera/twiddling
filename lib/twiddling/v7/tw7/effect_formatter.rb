@@ -7,18 +7,18 @@ module Twiddling
 
         module_function
 
-        def format(chord)
+        def format_effect(chord)
           case chord.type_name
           when :keyboard then format_keyboard(chord)
           when :device then format_device(chord)
           when :multichar then format_multichar(chord)
-          else format("0x%04x", chord.modifier_type)
+          else "0x%04x" % chord.modifier_type
           end
         end
 
         def format_keyboard(chord)
           mods = chord.modifier_names.map(&:downcase)
-          key = chord.key_name || format("0x%04x", chord.keycode)
+          key = chord.key_name || ("0x%04x" % chord.keycode)
 
           if mods == ["shift"] && SHIFTED_KEYS[key]
             SHIFTED_KEYS[key]
@@ -30,11 +30,11 @@ module Twiddling
         end
 
         def format_device(chord)
-          chord.device_function&.to_s || format("device_0x%02x", chord.modifier_byte)
+          chord.device_function&.to_s || ("device_0x%02x" % chord.modifier_byte)
         end
 
         def format_multichar(chord)
-          return format("multichar_0x%04x", chord.modifier_type) unless chord.string_keys
+          return "multichar_0x%04x" % chord.modifier_type unless chord.string_keys
 
           chars = chord.string_keys.map { |sk| string_key_to_char(sk) }.join
           %("#{chars}")
