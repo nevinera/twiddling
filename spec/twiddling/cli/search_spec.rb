@@ -85,6 +85,14 @@ describe Twiddling::Cli::Search do
     end
   end
 
+  describe "with unsupported extension" do
+    let(:argv) { [fixture_path("v7", "README.md"), "--chord", "1R"] }
+
+    it "raises ExitException" do
+      expect { cli.run }.to raise_error(Twiddling::Cli::ExitException, /Unsupported file type/)
+    end
+  end
+
   describe "with no filters" do
     let(:argv) { [cfg] }
 
