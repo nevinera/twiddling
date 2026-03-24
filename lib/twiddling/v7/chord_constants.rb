@@ -63,6 +63,19 @@ module Twiddling
         0x53 => "num_lock"
       }.freeze
 
+      # Base key -> shifted symbol (for Shift+key display)
+      SHIFTED_KEYS = {
+        "1" => "!", "2" => "@", "3" => "#", "4" => "$",
+        "5" => "%", "6" => "^", "7" => "&", "8" => "*",
+        "9" => "(", "0" => ")",
+        "-" => "_", "=" => "+", "[" => "{", "]" => "}",
+        "\\" => "|", ";" => ":", "'" => '"', "`" => "~",
+        "," => "<", "." => ">", "/" => "?"
+      }.freeze
+
+      # Characters that need special handling in string output
+      KEY_TO_CHAR = {"space" => " ", "tab" => "\t"}.freeze
+
       MOUSE_MODE_FLAG = 0x00080000
     end
   end
