@@ -110,5 +110,21 @@ describe Twiddling::V7::Tw7::Printer do
     it "leaves no-thumb chords ungrouped" do
       expect(output).to include("F1R: backspace")
     end
+
+    it "groups mouse-mode chords under [MOUSEMODE]" do
+      expect(output).to include("[MOUSEMODE]::")
+      expect(output).to include("  F1R: left_click")
+    end
+
+    it "preserves thumb buttons in mouse-mode chords" do
+      expect(output).to include("  T23: mouse_toggle")
+    end
+
+    it "places [MOUSEMODE] group last" do
+      lines = output.lines.map(&:rstrip)
+      mousemode_idx = lines.index { |l| l == "[MOUSEMODE]::" }
+      t4_idx = lines.index { |l| l == "T4::" }
+      expect(mousemode_idx).to be > t4_idx
+    end
   end
 end

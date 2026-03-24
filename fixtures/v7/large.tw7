@@ -93,12 +93,6 @@ F1R F2M F3L F4L: >
 F1R F2L F3L F4L: %
 F1M F2L F3L F4L: esc
 F1L F2L F3L F4L: _
-F1R: left_click
-F1M: middle_click
-F1L: right_click
-F4R: speed_decrease
-F4M: scroll_toggle
-F4L: speed_increase
 
 T2::
   F2R: ctrl+d
@@ -138,4 +132,11 @@ T4::
 
 T14 F4R: speed_cycle
 
-T23: mouse_toggle
+[MOUSEMODE]::
+  F1R: left_click
+  F1M: middle_click
+  F1L: right_click
+  T23: mouse_toggle
+  F4R: speed_decrease
+  F4M: scroll_toggle
+  F4L: speed_increase
