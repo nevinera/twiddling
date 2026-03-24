@@ -1,0 +1,9 @@
+#!/usr/bin/env ruby
+
+require_relative "../lib/twiddling"
+
+input, output = ARGV
+abort "Usage: cfg2tw7 <input.cfg> <output.tw7>" unless input && output
+
+config = Twiddling::V7::Config.from_file(input)
+File.open(output, "w") { |f| Twiddling::V7::Tw7::Printer.new(config, io: f).print }

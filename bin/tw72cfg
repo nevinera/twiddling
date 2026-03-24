@@ -1,0 +1,9 @@
+#!/usr/bin/env ruby
+
+require_relative "../lib/twiddling"
+
+input, output = ARGV
+abort "Usage: tw72cfg <input.tw7> <output.cfg>" unless input && output
+
+config = Twiddling::V7::Tw7::Parser.new(File.read(input)).parse
+config.write(output)
