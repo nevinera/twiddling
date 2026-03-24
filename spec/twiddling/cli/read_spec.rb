@@ -55,11 +55,19 @@ describe Twiddling::Cli::Read do
     end
   end
 
-  describe "with an unknown extension" do
+  describe "with an unknown input extension" do
     let(:argv) { [fixture_path("v7", "README.md")] }
 
     it "raises ExitException" do
-      expect { cli.run }.to raise_error(Twiddling::Cli::ExitException, /Unknown file format/)
+      expect { cli.run }.to raise_error(Twiddling::Cli::ExitException, /Unsupported file type/)
+    end
+  end
+
+  describe "with an unknown output extension" do
+    let(:argv) { [fixture_path("v7", "single-unmodified-key.cfg"), tmp_path("out.txt")] }
+
+    it "raises ExitException" do
+      expect { cli.run }.to raise_error(Twiddling::Cli::ExitException, /Unsupported file type/)
     end
   end
 end

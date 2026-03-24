@@ -17,9 +17,20 @@ module Twiddling
         print_config
       end
 
+      READABLE_EXTS = %w[.cfg .tw7].freeze
+      WRITABLE_EXTS = %w[.tw7].freeze
+
       def validate!
-        raise ExitException, "Usage: twiddling read <file> [output]" if path.nil?
+        raise ExitException, "Usage: twiddling read <file> [output.tw7]" if path.nil?
         raise ExitException, "File not found: #{path}" unless File.exist?(path)
+        validate_ext!(path, READABLE_EXTS)
+        validate_ext!(output_path, WRITABLE_EXTS) if output_path
+      end
+
+      def validate_ext!(file, allowed)
+        return if allowed.include?(File.extname(file))
+
+        raise ExitException, "Unsupported file type: #{file} (expected #{allowed.join(" or ")})"
       end
 
       def print_config
