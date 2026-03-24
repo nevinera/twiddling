@@ -15,7 +15,7 @@ module Twiddling
           thumbs, fingers = partition_buttons(bitmask)
           parts = []
           parts << format_thumbs(thumbs) unless thumbs.empty?
-          fingers.sort.each { |row, cols| parts << "F#{row}#{cols.join}" }
+          fingers.sort.each { |row, cols| parts << "#{row}#{cols.join}" }
           parts.join(" ")
         end
 
@@ -31,7 +31,7 @@ module Twiddling
         # excluding thumb buttons.
         def finger_part(bitmask)
           _, fingers = partition_buttons(bitmask)
-          fingers.sort.map { |row, cols| "F#{row}#{cols.join}" }.join(" ")
+          fingers.sort.map { |row, cols| "#{row}#{cols.join}" }.join(" ")
         end
 
         def partition_buttons(bitmask)

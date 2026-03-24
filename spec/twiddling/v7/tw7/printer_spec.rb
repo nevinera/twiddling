@@ -41,7 +41,7 @@ describe Twiddling::V7::Tw7::Printer do
       let(:fixture_name) { "single-unmodified-key.cfg" }
 
       it "formats as button: key" do
-        expect(output).to include("F1R: c")
+        expect(output).to include("1R: c")
       end
     end
 
@@ -49,7 +49,7 @@ describe Twiddling::V7::Tw7::Printer do
       let(:fixture_name) { "shifted-key.cfg" }
 
       it "formats shifted symbols directly" do
-        expect(output).to include("F1R: @")
+        expect(output).to include("1R: @")
       end
     end
 
@@ -57,7 +57,7 @@ describe Twiddling::V7::Tw7::Printer do
       let(:fixture_name) { "modifier-key.cfg" }
 
       it "formats as modifier+key" do
-        expect(output).to include("F1R: ctrl+c")
+        expect(output).to include("1R: ctrl+c")
       end
     end
 
@@ -65,7 +65,7 @@ describe Twiddling::V7::Tw7::Printer do
       let(:fixture_name) { "multi-char.cfg" }
 
       it "formats as quoted string" do
-        expect(output).to include('F1R: "test"')
+        expect(output).to include('1R: "test"')
       end
     end
 
@@ -73,7 +73,7 @@ describe Twiddling::V7::Tw7::Printer do
       let(:fixture_name) { "cycle-config-chord.cfg" }
 
       it "formats as function name" do
-        expect(output).to include("F1R: config_cycle")
+        expect(output).to include("1R: config_cycle")
       end
     end
 
@@ -81,9 +81,9 @@ describe Twiddling::V7::Tw7::Printer do
       let(:fixture_name) { "mini-buttons.cfg" }
 
       it "formats mini-buttons as F0L/F0M/F0R" do
-        expect(output).to include("F0L: l")
-        expect(output).to include("F0M: m")
-        expect(output).to include("F0R: r")
+        expect(output).to include("0L: l")
+        expect(output).to include("0M: m")
+        expect(output).to include("0R: r")
       end
     end
   end
@@ -103,17 +103,17 @@ describe Twiddling::V7::Tw7::Printer do
     end
 
     it "does not group single-chord thumb combos" do
-      expect(output).to include("T14 F4R: speed_cycle")
+      expect(output).to include("T14 4R: speed_cycle")
       expect(output).not_to include("T14::")
     end
 
     it "leaves no-thumb chords ungrouped" do
-      expect(output).to include("F1R: backspace")
+      expect(output).to include("1R: backspace")
     end
 
     it "groups mouse-mode chords under [MOUSEMODE]" do
       expect(output).to include("[MOUSEMODE]::")
-      expect(output).to include("  F1R: left_click")
+      expect(output).to include("  1R: left_click")
     end
 
     it "preserves thumb buttons in mouse-mode chords" do

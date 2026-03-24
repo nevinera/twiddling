@@ -1,12 +1,12 @@
-F1R: "test"
+1R: "test"
 
-T14 F4R: speed_cycle
+T14 4R: speed_cycle
 
 [MOUSEMODE]::
-  F1R: left_click
-  F1M: middle_click
-  F1L: right_click
+  1R: left_click
+  1M: middle_click
+  1L: right_click
   T23: mouse_toggle
-  F4R: speed_decrease
-  F4M: scroll_toggle
-  F4L: speed_increase
+  4R: speed_decrease
+  4M: scroll_toggle
+  4L: speed_increase

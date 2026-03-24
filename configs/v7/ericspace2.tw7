@@ -10,133 +10,133 @@ f0m_dedicated: none
 f0r_dedicated: none
 t0_dedicated: none
 =====
-F1R: backspace
-F1M: space
-F1L: tab
-F2R: i
-F1R F2R: 1
-F1M F2R: c
-F1L F2R: -
-F2M: e
-F1R F2M: 4
-F1M F2M: d
-F1L F2M: enter
-F2L: o
-F1R F2L: 7
-F1M F2L: u
-F1L F2L: .
-F3R: n
-F1R F3R: 2
-F1M F3R: f
-F1L F3R: /
-F1R F2R F3R: 0
-F1M F2R F3R: b
-F1L F2R F3R: ~
-F1R F2M F3R: [
-F1L F2L F3R: @
-F3M: t
-F1R F3M: 5
-F1M F3M: l
-F1L F3M: !
-F1R F2R F3M: +
-F1R F2M F3M: (
-F1M F2M F3M: p
-F1L F2M F3M: :
-F1L F2L F3M: ?
-F3L: r
-F1R F3L: 8
-F1M F3L: w
-F1L F3L: ,
-F1R F2R F3L: -
-F1R F2M F3L: {
-F1R F2L F3L: ^
-F1M F2L F3L: v
-F1L F2L F3L: ;
-F4R: a
-F1R F4R: 3
-F1M F4R: g
-F1L F4R: \
-F1R F2R F4R: =
-F1R F2M F4R: ]
-F1L F2L F4R: %
-F1R F3R F4R: .
-F1M F3R F4R: j
-F1L F3R F4R: &
-F1R F2R F3R F4R: enter
-F1M F2R F3R F4R: z
-F1L F2R F3R F4R: |
-F1R F2M F3R F4R: <
-F4M: h
-F1R F4M: 6
-F1M F4M: m
-F1L F4M: *
-F1R F2R F4M: *
-F1R F2M F4M: )
-F1L F2L F4M: $
-F1R F3M F4M: ,
-F1M F3M F4M: k
-F1L F3M F4M: `
-F1R F2M F3M F4M: $
-F1M F2M F3M F4M: q
-F1L F2M F3M F4M: =
-F4L: s
-F1R F4L: 9
-F1M F4L: y
-F1L F4L: '
-F1R F2R F4L: /
-F1R F2M F4L: }
-F1L F2L F4L: #
-F1R F3L F4L: ~
-F1M F3L F4L: x
-F1L F3L F4L: "
-F1R F2M F3L F4L: >
-F1R F2L F3L F4L: %
-F1M F2L F3L F4L: esc
-F1L F2L F3L F4L: _
+1R: backspace
+1M: space
+1L: tab
+2R: i
+1R 2R: 1
+1M 2R: c
+1L 2R: -
+2M: e
+1R 2M: 4
+1M 2M: d
+1L 2M: enter
+2L: o
+1R 2L: 7
+1M 2L: u
+1L 2L: .
+3R: n
+1R 3R: 2
+1M 3R: f
+1L 3R: /
+1R 2R 3R: 0
+1M 2R 3R: b
+1L 2R 3R: ~
+1R 2M 3R: [
+1L 2L 3R: @
+3M: t
+1R 3M: 5
+1M 3M: l
+1L 3M: !
+1R 2R 3M: +
+1R 2M 3M: (
+1M 2M 3M: p
+1L 2M 3M: :
+1L 2L 3M: ?
+3L: r
+1R 3L: 8
+1M 3L: w
+1L 3L: ,
+1R 2R 3L: -
+1R 2M 3L: {
+1R 2L 3L: ^
+1M 2L 3L: v
+1L 2L 3L: ;
+4R: a
+1R 4R: 3
+1M 4R: g
+1L 4R: \
+1R 2R 4R: =
+1R 2M 4R: ]
+1L 2L 4R: %
+1R 3R 4R: .
+1M 3R 4R: j
+1L 3R 4R: &
+1R 2R 3R 4R: enter
+1M 2R 3R 4R: z
+1L 2R 3R 4R: |
+1R 2M 3R 4R: <
+4M: h
+1R 4M: 6
+1M 4M: m
+1L 4M: *
+1R 2R 4M: *
+1R 2M 4M: )
+1L 2L 4M: $
+1R 3M 4M: ,
+1M 3M 4M: k
+1L 3M 4M: `
+1R 2M 3M 4M: $
+1M 2M 3M 4M: q
+1L 2M 3M 4M: =
+4L: s
+1R 4L: 9
+1M 4L: y
+1L 4L: '
+1R 2R 4L: /
+1R 2M 4L: }
+1L 2L 4L: #
+1R 3L 4L: ~
+1M 3L 4L: x
+1L 3L 4L: "
+1R 2M 3L 4L: >
+1R 2L 3L 4L: %
+1M 2L 3L 4L: esc
+1L 2L 3L 4L: _
 
 T2::
-  F2R: ctrl+d
-  F1R F2R: cmd+c
-  F2M: ctrl+c
-  F1R F2M: cmd+v
-  F2L: cmd+n
-  F1R F2L: cmd+x
-  F3R: cmd+l
-  F3M: cmd+k
-  F3L: cmd+f
-  F4R: cmd+w
-  F4M: cmd+t
-  F4L: cmd+q
+  2R: ctrl+d
+  1R 2R: cmd+c
+  2M: ctrl+c
+  1R 2M: cmd+v
+  2L: cmd+n
+  1R 2L: cmd+x
+  3R: cmd+l
+  3M: cmd+k
+  3L: cmd+f
+  4R: cmd+w
+  4M: cmd+t
+  4L: cmd+q
 
 T4::
-  F1R: ctrl+y
-  F1M: up
-  F1L: page_up
-  F2R: alt+f
-  F2M: right
-  F2L: end
-  F3R: alt+b
-  F2R F3R: ctrl+cmd+up
-  F3M: left
-  F3L: home
-  F2L F3L: ctrl+cmd+enter
-  F4R: ctrl+e
-  F1R F4R: ctrl+cmd+left
-  F4M: down
-  F4L: page_down
-  F1L F4L: ctrl+cmd+right
-  F1L F2L F3L F4L: ctrl+cmd+enter
-  F0L: ctrl+tab
-  F0M: cmd+`
-  F0R: cmd+tab
+  1R: ctrl+y
+  1M: up
+  1L: page_up
+  2R: alt+f
+  2M: right
+  2L: end
+  3R: alt+b
+  2R 3R: ctrl+cmd+up
+  3M: left
+  3L: home
+  2L 3L: ctrl+cmd+enter
+  4R: ctrl+e
+  1R 4R: ctrl+cmd+left
+  4M: down
+  4L: page_down
+  1L 4L: ctrl+cmd+right
+  1L 2L 3L 4L: ctrl+cmd+enter
+  0L: ctrl+tab
+  0M: cmd+`
+  0R: cmd+tab
 
-T14 F4R: speed_cycle
+T14 4R: speed_cycle
 
 [MOUSEMODE]::
-  F1R: left_click
-  F1M: middle_click
-  F1L: right_click
+  1R: left_click
+  1M: middle_click
+  1L: right_click
   T23: mouse_toggle
-  F4R: speed_decrease
-  F4M: scroll_toggle
-  F4L: speed_increase
+  4R: speed_decrease
+  4M: scroll_toggle
+  4L: speed_increase
