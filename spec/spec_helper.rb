@@ -16,7 +16,10 @@ if ENV["SIMPLECOV"]
       problem_files = all_files.select { |f| f.covered_percent < 100.0 }
       if problem_files.any?
         warn "Coverage gaps:"
-        problem_files.each { |f| warn "  #{f.filename} (#{f.covered_percent.round(2)}%)" }
+        problem_files.each do |f|
+          uncovered = f.missed_lines.map(&:line_number)
+          warn "  #{f.filename} (#{f.covered_percent.round(2)}%) - lines: #{uncovered.join(", ")}"
+        end
       else
         warn "All files fully covered"
       end
