@@ -76,6 +76,15 @@ describe Twiddling::Cli::Search do
     end
   end
 
+  describe "--help" do
+    let(:argv) { ["--help"] }
+
+    it "prints help to stdout" do
+      cli.run
+      expect(stdout.string).to include("Usage: twiddling search")
+    end
+  end
+
   describe "with no filters" do
     let(:argv) { [cfg] }
 

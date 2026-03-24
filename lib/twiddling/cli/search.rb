@@ -11,6 +11,22 @@ module Twiddling
     class Search
       READABLE_EXTS = %w[.cfg .tw7].freeze
 
+      HELP_TEXT = <<~TEXT
+        Usage: twiddling search <file> [filters]
+
+        Searches for chords matching all supplied filters.
+
+        Filters:
+          --chord BUTTONS   Exact button combination match
+          --button BUTTON   Includes this button (repeatable)
+          --result EFFECT   Produces this output
+
+        Examples:
+          twiddling search my.cfg --chord "T1 1L"
+          twiddling search my.tw7 --result "@"
+          twiddling search my.cfg --button T4 --button 0M
+      TEXT
+
       def initialize(argv:, stdout: $stdout, stderr: $stderr)
         @argv = argv
         @stdout = stdout
@@ -18,6 +34,7 @@ module Twiddling
       end
 
       def run
+        return @stdout.puts(HELP_TEXT) if help?
         validate!
         matches = apply_filters
         if matches.empty?
@@ -50,15 +67,13 @@ module Twiddling
 
       def path = options[:path]
 
+      def help? = @argv.include?("-h") || @argv.include?("--help")
+
       def validate!
-        raise ExitException, usage if path.nil?
+        raise ExitException, HELP_TEXT if path.nil?
         raise ExitException, "File not found: #{path}" unless File.exist?(path)
         validate_ext!
         raise ExitException, "No search criteria specified" unless any_filters?
-      end
-
-      def usage
-        "Usage: twiddling search <file> --chord BUTTONS | --button BUTTON | --result EFFECT"
       end
 
       def validate_ext!

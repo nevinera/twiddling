@@ -30,6 +30,15 @@ describe Twiddling::Cli::Convert do
     end
   end
 
+  describe "--help" do
+    let(:argv) { ["--help"] }
+
+    it "prints help to stdout" do
+      cli.run
+      expect(stdout.string).to include("Usage: twiddling convert")
+    end
+  end
+
   describe "with missing arguments" do
     let(:argv) { [fixture_path("v7", "single-unmodified-key.cfg")] }
 

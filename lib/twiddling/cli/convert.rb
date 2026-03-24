@@ -7,6 +7,17 @@ module Twiddling
     class Convert
       VALID_EXTS = %w[.cfg .tw7].freeze
 
+      HELP_TEXT = <<~TEXT
+        Usage: twiddling convert <input> <output>
+
+        Converts between .cfg (binary) and .tw7 (text) formats.
+        The direction is determined by the file extensions.
+
+        Examples:
+          twiddling convert my_config.cfg layout.tw7
+          twiddling convert layout.tw7 my_config.cfg
+      TEXT
+
       def initialize(argv:, stdout: $stdout, stderr: $stderr)
         @argv = argv
         @stdout = stdout
@@ -14,6 +25,7 @@ module Twiddling
       end
 
       def run
+        return @stdout.puts(HELP_TEXT) if help?
         validate!
         write_output
       end
@@ -24,8 +36,10 @@ module Twiddling
 
       def output_path = @argv[1]
 
+      def help? = @argv.include?("-h") || @argv.include?("--help")
+
       def validate!
-        raise ExitException, "Usage: twiddling convert <input> <output>" unless input_path && output_path
+        raise ExitException, HELP_TEXT unless input_path && output_path
         raise ExitException, "File not found: #{input_path}" unless File.exist?(input_path)
         validate_ext!(input_path)
         validate_ext!(output_path)
