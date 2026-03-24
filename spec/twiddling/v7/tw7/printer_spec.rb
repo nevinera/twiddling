@@ -41,7 +41,7 @@ describe Twiddling::V7::Tw7::Printer do
       let(:fixture_name) { "single-unmodified-key.cfg" }
 
       it "formats as button: key" do
-        expect(output).to include("F1L: c")
+        expect(output).to include("F1R: c")
       end
     end
 
@@ -49,7 +49,7 @@ describe Twiddling::V7::Tw7::Printer do
       let(:fixture_name) { "shifted-key.cfg" }
 
       it "formats shifted symbols directly" do
-        expect(output).to include("F1L: @")
+        expect(output).to include("F1R: @")
       end
     end
 
@@ -57,7 +57,7 @@ describe Twiddling::V7::Tw7::Printer do
       let(:fixture_name) { "modifier-key.cfg" }
 
       it "formats as modifier+key" do
-        expect(output).to include("F1L: ctrl+c")
+        expect(output).to include("F1R: ctrl+c")
       end
     end
 
@@ -65,7 +65,7 @@ describe Twiddling::V7::Tw7::Printer do
       let(:fixture_name) { "multi-char.cfg" }
 
       it "formats as quoted string" do
-        expect(output).to include('F1L: "test"')
+        expect(output).to include('F1R: "test"')
       end
     end
 
@@ -73,7 +73,7 @@ describe Twiddling::V7::Tw7::Printer do
       let(:fixture_name) { "cycle-config-chord.cfg" }
 
       it "formats as function name" do
-        expect(output).to include("F1L: config_cycle")
+        expect(output).to include("F1R: config_cycle")
       end
     end
 
@@ -103,12 +103,12 @@ describe Twiddling::V7::Tw7::Printer do
     end
 
     it "does not group single-chord thumb combos" do
-      expect(output).to include("T14 F4L: speed_cycle")
+      expect(output).to include("T14 F4R: speed_cycle")
       expect(output).not_to include("T14::")
     end
 
     it "leaves no-thumb chords ungrouped" do
-      expect(output).to include("F1L: backspace")
+      expect(output).to include("F1R: backspace")
     end
   end
 end

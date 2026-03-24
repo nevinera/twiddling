@@ -151,13 +151,13 @@ columns L/M/R), plus a mouse-mode flag.
 | Bit | Button | Bit | Button | Bit | Button |
 |-----|--------|-----|--------|-----|--------|
 | 0 | T1 | 8 | T3 | 16 | F0L |
-| 1 | F1L | 9 | F3L | 17 | F0M |
+| 1 | F1R | 9 | F3R | 17 | F0M |
 | 2 | F1M | 10 | F3M | 18 | F0R |
-| 3 | F1R | 11 | F3R | 19 | mouse-mode-only |
+| 3 | F1L | 11 | F3L | 19 | mouse-mode-only |
 | 4 | T2 | 12 | T4 | | |
-| 5 | F2L | 13 | F4L | | |
+| 5 | F2R | 13 | F4R | | |
 | 6 | F2M | 14 | F4M | | |
-| 7 | F2R | 15 | F4R | | |
+| 7 | F2L | 15 | F4L | | |
 
 Bits 0-18 encode physical buttons. Bit 19 is a flag: when set, the
 chord is only active in mouse mode. Bits 20-31 are unused (always 0 in

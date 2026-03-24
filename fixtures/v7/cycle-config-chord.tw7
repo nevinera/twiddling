@@ -1,11 +1,11 @@
-F1L: config_cycle
-F1L: left_click
+F1R: config_cycle
+F1R: left_click
 F1M: middle_click
-F1R: right_click
-F4L: speed_decrease
+F1L: right_click
+F4R: speed_decrease
 F4M: scroll_toggle
-F4R: speed_increase
+F4L: speed_increase
 
-T14 F4L: speed_cycle
+T14 F4R: speed_cycle
 
 T23: mouse_toggle

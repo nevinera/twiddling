@@ -1,167 +1,167 @@
-F1L: a
+F1R: a
 F1M: e
-F1R: space
-F2L: b
-F1L F2L: .
-F1M F2L: r
-F1R F2L: i
+F1L: space
+F2R: b
+F1R F2R: .
+F1M F2R: r
+F1L F2R: i
 F2M: f
-F1L F2M: '
+F1R F2M: '
 F1M F2M: u
-F1R F2M: l
-F2R: delete
-F1L F2R: /
-F1M F2R: x
-F1R F2R: o
-F3L: c
-F1L F3L: ,
-F1M F3L: s
-F1R F3L: j
-F2L F3L: "the "
-F1L F2L F3L: esc
-F2M F3L: up
-F2R F3L: 4
+F1L F2M: l
+F2L: delete
+F1R F2L: /
+F1M F2L: x
+F1L F2L: o
+F3R: c
+F1R F3R: ,
+F1M F3R: s
+F1L F3R: j
+F2R F3R: "the "
+F1R F2R F3R: esc
+F2M F3R: up
+F2L F3R: 4
 F3M: g
-F1L F3M: '
+F1R F3M: '
 F1M F3M: v
-F1R F3M: m
-F2L F3M: "of "
+F1L F3M: m
+F2R F3M: "of "
 F2M F3M: left
 F1M F2M F3M: /
-F3R: backspace
-F1L F3R: !
-F1M F3R: y
-F1R F3R: p
-F2L F3R: 0
-F2M F3R: down
-F2R F3R: 9
-F1R F2R F3R: \
-F4L: d
-F1L F4L: ;
-F1M F4L: t
-F1R F4L: k
-F2L F4L: "to "
-F2M F4L: "ed "
-F3L F4L: page_up
-F1L F3L F4L: "ant "
-F2L F3L F4L: home
-F1L F2L F3L F4L: caps_lock
-F3M F4L: =
-F3R F4L: @
+F3L: backspace
+F1R F3L: !
+F1M F3L: y
+F1L F3L: p
+F2R F3L: 0
+F2M F3L: down
+F2L F3L: 9
+F1L F2L F3L: \
+F4R: d
+F1R F4R: ;
+F1M F4R: t
+F1L F4R: k
+F2R F4R: "to "
+F2M F4R: "ed "
+F3R F4R: page_up
+F1R F3R F4R: "ant "
+F2R F3R F4R: home
+F1R F2R F3R F4R: caps_lock
+F3M F4R: =
+F3L F4R: @
 F4M: h
-F1L F4M: "and "
+F1R F4M: "and "
 F1M F4M: w
-F1R F4M: n
-F2L F4M: "in"
+F1L F4M: n
+F2R F4M: "in"
 F2M F4M: right
 F1M F2M F4M: tab
-F2R F4M: "ion "
-F3L F4M: 5
+F2L F4M: "ion "
+F3R F4M: 5
 F3M F4M: "ing "
 F1M F3M F4M: "ent "
 F1M F2M F3M F4M: num_lock
-F3R F4M: 8
-F4R: enter
-F1L F4R: -
-F1M F4R: z
-F1R F4R: q
-F2L F4R: -
-F2M F4R: 3
-F2R F4R: 7
-F3L F4R: :
-F3M F4R: =
-F3R F4R: page_down
-F2R F3R F4R: end
-F1L: left_click
+F3L F4M: 8
+F4L: enter
+F1R F4L: -
+F1M F4L: z
+F1L F4L: q
+F2R F4L: -
+F2M F4L: 3
+F2L F4L: 7
+F3R F4L: :
+F3M F4L: =
+F3L F4L: page_down
+F2L F3L F4L: end
+F1R: left_click
 F1M: middle_click
-F1R: right_click
-F4L: speed_decrease
+F1L: right_click
+F4R: speed_decrease
 F4M: scroll_toggle
-F4R: speed_increase
+F4L: speed_increase
 
 T1::
-  F1L: 1
+  F1R: 1
   F1M: 5
-  F1R: 9
-  F2L: 2
+  F1L: 9
+  F2R: 2
   F2M: 6
-  F1L F2M: [
-  F1R F2M: ^
-  F2R: 0
-  F3L: 3
-  F1L F3L: >
-  F1R F2R F3L: |
+  F1R F2M: [
+  F1L F2M: ^
+  F2L: 0
+  F3R: 3
+  F1R F3R: >
+  F1L F2L F3R: |
   F3M: 7
-  F1R F2R F3M: ~
-  F1L F3R: `
-  F4L: 4
-  F1R F2R F4L: }
+  F1L F2L F3M: ~
+  F1R F3L: `
+  F4R: 4
+  F1L F2L F4R: }
   F4M: 8
-  F1L F4M: ]
-  F4R: enter
-  F1L F4R: {
-  F1M F4R: <
+  F1R F4M: ]
+  F4L: enter
+  F1R F4L: {
+  F1M F4L: <
 
 T3::
-  F1L: ctrl+a
+  F1R: ctrl+a
   F1M: ctrl+e
-  F2L: ctrl+b
-  F1M F2L: ctrl+r
-  F1R F2L: ctrl+i
+  F2R: ctrl+b
+  F1M F2R: ctrl+r
+  F1L F2R: ctrl+i
   F2M: ctrl+f
   F1M F2M: ctrl+u
-  F1R F2M: ctrl+l
-  F1M F2R: ctrl+x
-  F1R F2R: ctrl+o
-  F3L: ctrl+c
-  F1M F3L: ctrl+s
-  F1R F3L: ctrl+j
+  F1L F2M: ctrl+l
+  F1M F2L: ctrl+x
+  F1L F2L: ctrl+o
+  F3R: ctrl+c
+  F1M F3R: ctrl+s
+  F1L F3R: ctrl+j
   F3M: ctrl+g
   F1M F3M: ctrl+v
-  F1R F3M: ctrl+m
-  F1R F2R F3M: insert
-  F1M F3R: ctrl+y
-  F1R F3R: ctrl+p
-  F4L: ctrl+d
-  F1M F4L: ctrl+t
-  F1R F4L: ctrl+k
+  F1L F3M: ctrl+m
+  F1L F2L F3M: insert
+  F1M F3L: ctrl+y
+  F1L F3L: ctrl+p
+  F4R: ctrl+d
+  F1M F4R: ctrl+t
+  F1L F4R: ctrl+k
   F4M: ctrl+h
   F1M F4M: ctrl+w
-  F1R F4M: ctrl+n
-  F1M F4R: ctrl+z
-  F1R F4R: ctrl+q
+  F1L F4M: ctrl+n
+  F1M F4L: ctrl+z
+  F1L F4L: ctrl+q
 
 T4::
   F1M F2M F4M: tab
-  F4R: enter
+  F4L: enter
 
 T12::
-  F1L: f1
+  F1R: f1
   F1M: f5
-  F1R: f9
-  F2L: f2
-  F1R F2L: alt+f1
+  F1L: f9
+  F2R: f2
+  F1L F2R: alt+f1
   F2M: f6
-  F1R F2M: alt+f4
-  F2R: f10
-  F1R F2R: alt+f7
-  F3L: f3
-  F1R F3L: alt+f2
-  F2R F3L: alt+f10
+  F1L F2M: alt+f4
+  F2L: f10
+  F1L F2L: alt+f7
+  F3R: f3
+  F1L F3R: alt+f2
+  F2L F3R: alt+f10
   F3M: f7
-  F1R F3M: alt+f5
-  F2R F3M: alt+f12
-  F3R: f11
-  F1R F3R: alt+f8
-  F4L: f4
-  F1R F4L: alt+f3
-  F2R F4L: alt+f11
+  F1L F3M: alt+f5
+  F2L F3M: alt+f12
+  F3L: f11
+  F1L F3L: alt+f8
+  F4R: f4
+  F1L F4R: alt+f3
+  F2L F4R: alt+f11
   F4M: f8
-  F1R F4M: alt+f6
-  F4R: f12
-  F1R F4R: alt+f9
-  F1R F2R F4R: 0x0047
+  F1L F4M: alt+f6
+  F4L: f12
+  F1L F4L: alt+f9
+  F1L F2L F4L: 0x0047
 
-T14 F4L: speed_cycle
+T14 F4R: speed_cycle
 
 T23: mouse_toggle
