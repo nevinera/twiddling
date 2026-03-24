@@ -6,7 +6,7 @@ module Twiddling
 
         Subcommands:
           help                       Show this help message
-          read <file> [output.tw7]   Read a .cfg or .tw7 file
+          read <file>                Read a .cfg or .tw7 file
       TEXT
 
       def initialize(argv:, stdout: $stdout, stderr: $stderr)

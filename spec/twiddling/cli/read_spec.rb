@@ -22,23 +22,6 @@ describe Twiddling::Cli::Read do
     end
   end
 
-  describe "writing to output file" do
-    let(:output) { tmp_path("read_output.tw7") }
-    let(:argv) { [fixture_path("v7", "single-unmodified-key.cfg"), output] }
-
-    after { FileUtils.rm_f(output) }
-
-    it "writes tw7 to the output file" do
-      cli.run
-      expect(File.read(output)).to include("1R: c")
-    end
-
-    it "does not write to stdout" do
-      cli.run
-      expect(stdout.string).to be_empty
-    end
-  end
-
   describe "with no arguments" do
     let(:argv) { [] }
 
@@ -55,16 +38,8 @@ describe Twiddling::Cli::Read do
     end
   end
 
-  describe "with an unknown input extension" do
+  describe "with an unsupported extension" do
     let(:argv) { [fixture_path("v7", "README.md")] }
-
-    it "raises ExitException" do
-      expect { cli.run }.to raise_error(Twiddling::Cli::ExitException, /Unsupported file type/)
-    end
-  end
-
-  describe "with an unknown output extension" do
-    let(:argv) { [fixture_path("v7", "single-unmodified-key.cfg"), tmp_path("out.txt")] }
 
     it "raises ExitException" do
       expect { cli.run }.to raise_error(Twiddling::Cli::ExitException, /Unsupported file type/)
