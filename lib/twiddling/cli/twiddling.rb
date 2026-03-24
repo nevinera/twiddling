@@ -3,6 +3,7 @@ module Twiddling
     class Twiddling
       SUBCOMMANDS = {
         "read" => :Read,
+        "convert" => :Convert,
         "help" => :Help
       }.freeze
 
