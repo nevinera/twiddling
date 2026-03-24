@@ -1,9 +1,10 @@
 module Twiddling
   module Cli
-    # twiddling read <file.cfg|file.tw7>
+    # twiddling read <file.cfg|file.tw7> [output.tw7]
     #
-    # Reads a config file and prints it as .tw7 text to stdout.
+    # Reads a config file and prints it as .tw7 text.
     # Accepts both .cfg (binary) and .tw7 (text) formats.
+    # Writes to output file if given, otherwise stdout.
     class Read
       def initialize(argv:, stdout: $stdout, stderr: $stderr)
         @argv = argv
@@ -12,26 +13,39 @@ module Twiddling
       end
 
       def run
-        raise ExitException, "Usage: twiddling read <file>" if path.nil?
-        raise ExitException, "File not found: #{path}" unless File.exist?(path)
+        validate!
+        print_config
+      end
 
-        V7::Tw7::Printer.new(config, io: @stdout).print
+      def validate!
+        raise ExitException, "Usage: twiddling read <file> [output]" if path.nil?
+        raise ExitException, "File not found: #{path}" unless File.exist?(path)
+      end
+
+      def print_config
+        if output_path
+          File.open(output_path, "w") { |f| V7::Tw7::Printer.new(config, io: f).print }
+        else
+          V7::Tw7::Printer.new(config, io: @stdout).print
+        end
       end
 
       private
 
-      def path
-        @argv.first
-      end
+      def path = @argv[0]
+
+      def output_path = @argv[1]
 
       def config
-        @config ||= case File.extname(path)
-        when ".cfg"
-          V7::Config.from_file(path)
-        when ".tw7"
-          V7::Tw7::Parser.new(File.read(path)).parse
+        @config ||= load_config(path)
+      end
+
+      def load_config(file)
+        case File.extname(file)
+        when ".cfg" then V7::Config.from_file(file)
+        when ".tw7" then V7::Tw7::Parser.new(File.read(file)).parse
         else
-          raise ExitException, "Unknown file format: #{path} (expected .cfg or .tw7)"
+          raise ExitException, "Unknown file format: #{file} (expected .cfg or .tw7)"
         end
       end
     end

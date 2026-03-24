@@ -22,6 +22,23 @@ describe Twiddling::Cli::Read do
     end
   end
 
+  describe "writing to output file" do
+    let(:output) { tmp_path("read_output.tw7") }
+    let(:argv) { [fixture_path("v7", "single-unmodified-key.cfg"), output] }
+
+    after { FileUtils.rm_f(output) }
+
+    it "writes tw7 to the output file" do
+      cli.run
+      expect(File.read(output)).to include("1R: c")
+    end
+
+    it "does not write to stdout" do
+      cli.run
+      expect(stdout.string).to be_empty
+    end
+  end
+
   describe "with no arguments" do
     let(:argv) { [] }
 
