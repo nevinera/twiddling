@@ -20,12 +20,32 @@ module Twiddling
           mods = chord.modifier_names.map(&:downcase)
           key = chord.key_name || ("0x%04x" % chord.keycode)
 
-          if mods == ["shift"] && SHIFTED_KEYS[key]
+          result = if mods == ["shift"] && SHIFTED_KEYS[key]
             SHIFTED_KEYS[key]
           elsif mods.empty?
             key
           else
             (mods + [key]).join("+")
+          end
+
+          format_ambiguous(result, chord)
+        end
+
+        # Characters that can't appear as bare effects.
+        # # starts a comment, " starts a string literal.
+        QUOTE_CHARS = Set.new(["#"]).freeze
+        UNQUOTABLE_CHARS = Set.new(['"']).freeze
+
+        def format_ambiguous(result, chord)
+          if UNQUOTABLE_CHARS.include?(result)
+            # Can't quote " inside double quotes - use explicit modifier form
+            mods = chord.modifier_names.map(&:downcase)
+            key = chord.key_name
+            (mods + [key]).join("+")
+          elsif QUOTE_CHARS.include?(result)
+            %("#{result}")
+          else
+            result
           end
         end
 

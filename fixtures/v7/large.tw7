@@ -85,10 +85,10 @@ t0_dedicated: none
 1L 4L: '
 1R 2R 4L: /
 1R 2M 4L: }
-1L 2L 4L: #
+1L 2L 4L: "#"
 1R 3L 4L: ~
 1M 3L 4L: x
-1L 3L 4L: "
+1L 3L 4L: shift+'
 1R 2M 3L 4L: >
 1R 2L 3L 4L: %
 1M 2L 3L 4L: esc
