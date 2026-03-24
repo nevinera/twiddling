@@ -2,108 +2,169 @@ key_repeat: false
 haptic: false
 nav_direction: 1
 t1_modifier: l_command
-t2_modifier: num
+t2_modifier: num        # what is this? Should be unbound, based on the tuner
 t3_modifier: l_shift
-t4_modifier: num
+t4_modifier: num        # what is this? Should be unbound, based on the tuner
 f0l_dedicated: none
 f0m_dedicated: none
 f0r_dedicated: none
 t0_dedicated: none
 =====
+
+# The primary bindings here are based on the tabspace layout - see
+# https://rhodesmill.org/brandon/projects/tabspace-guide.pdf for
+# details. I have departed in several places, but the general idea
+# is to dedicate the 1-row to chord bases (index finger is most
+# capable of isolated control).
+
 1R: backspace
 1M: space
 1L: tab
+
+# -------- letters ------------------------------
 2R: i
-1R 2R: 1
-1M 2R: c
-1L 2R: -
 2M: e
-1R 2M: 4
-1M 2M: d
-1L 2M: enter
 2L: o
-1R 2L: 7
-1M 2L: u
-1L 2L: .
 3R: n
-1R 3R: 2
-1M 3R: f
-1L 3R: /
-1R 2R 3R: 0
-1M 2R 3R: b
-1L 2R 3R: ~
-1R 2M 3R: [
-1L 2L 3R: @
 3M: t
-1R 3M: 5
-1M 3M: l
-1L 3M: !
-1R 2R 3M: +
-1R 2M 3M: (
-1M 2M 3M: p
-1L 2M 3M: :
-1L 2L 3M: ?
 3L: r
-1R 3L: 8
-1M 3L: w
-1L 3L: ,
-1R 2R 3L: -
-1R 2M 3L: {
-1R 2L 3L: ^
-1M 2L 3L: v
-1L 2L 3L: ;
 4R: a
-1R 4R: 3
-1M 4R: g
-1L 4R: \
-1R 2R 4R: =
-1R 2M 4R: ]
-1L 2L 4R: %
-1R 3R 4R: .
-1M 3R 4R: j
-1L 3R 4R: &
-1R 2R 3R 4R: enter
-1M 2R 3R 4R: z
-1L 2R 3R 4R: |
-1R 2M 3R 4R: <
 4M: h
-1R 4M: 6
-1M 4M: m
-1L 4M: *
-1R 2R 4M: *
-1R 2M 4M: )
-1L 2L 4M: $
-1R 3M 4M: ,
-1M 3M 4M: k
-1L 3M 4M: `
-1R 2M 3M 4M: $
-1M 2M 3M 4M: q
-1L 2M 3M 4M: =
 4L: s
-1R 4L: 9
-1M 4L: y
-1L 4L: '
-1R 2R 4L: /
-1R 2M 4L: }
-1L 2L 4L: "#"
-1R 3L 4L: ~
-1M 3L 4L: x
-1L 3L 4L: shift+'
-1R 2M 3L 4L: >
-1R 2L 3L 4L: %
+
+1M::
+  # -- Secondary letters (chorded on space/1M)
+  2R: c
+  2M: d
+  2L: u
+  3R: f
+  3M: l
+  3L: w
+  4R: g
+  4M: m
+  4L: y
+
+  # -- Tertiary letters (adjacent pairs chorded on space/1M)
+  2R 3R: b
+  2M 3M: p
+  3M 4M: k
+  2L 3L: v
+  3L 4L: x
+  3R 4R: j
+
+  # -- Rare letters (adjacent triples chorded on space/1M)
+  2R 3R 4R: z
+  2M 3M 4M: q
+  # Note that 1M 2L3L4L is in the next section (as ESC)
+
+# -------- whole hand chords --------------------
+1R 2R 3R 4R: enter
 1M 2L 3L 4L: esc
-1L 2L 3L 4L: _
+
+# -------- numerics -----------------------------
+1R::
+  # numbers
+  2R: 1
+  3R: 2
+  4R: 3
+  2M: 4
+  3M: 5
+  4M: 6
+  2L: 7
+  3L: 8
+  4L: 9
+  2R 3R: 0  # (three adjacent)
+
+  3R 4R: .
+  3M 4M: ,
+  2L 3L: ^
+
+  3L 4L: ~
+  2L 3L 4L: %
+
+# -------- calculation glyphs ------------------------------
+1R2R:: 
+  # (3R is above - that's zero)
+  3M: +
+  3L: -
+  4R: =
+  4M: *
+  4L: /
+
+# I am less happy with the punctuation/symbol bindings.
+# There are _so many_ of them, and I don't have a good mental model for
+# how to organize them so that I can find what I need on the fly yet.
+# I write mostly ruby, so the easily reachable symbols are biased in
+# that direction.
+
+# -------- paired glyphs (mostly) ---------------------
+1R2M:: 
+  3R: [
+  4R: ]
+  3M: (
+  4M: )
+  3L: {
+  4L: }
+  3R 4R: <
+  3L 4L: >
+
+  3M 4M: $
+
+1L:: # -------- common punctuation ------------------------------
+  2L: .
+  3L: ,
+  4L: '
+
+  2M: enter
+  3M: !
+  4M: *
+
+  2R: -
+  3R: /
+  4R: \
+
+  # adjacent pairs
+  3R 4R: &
+  3M 4M: `
+  3L 4L: shift+' # (double-quote)
+
+1L2L::
+  3R: @
+  3M: ?     # way more common than I expected, this needs promoting to a 2-finger chord
+  3L: ;
+  4R: %
+  4M: $
+  4L: "#"
+  3L 4L: "_"
+
+1L2M::      # don't chord too much from here; 'enter' is a dangerous base in a terminal
+  3M: ":"
+  3M 4M: =
+
+1L2R::      # awkward reach
+  3R: ~
+  3R 4R: |
+
+# Thumb chords - these are entirely tentative, and I'm playing with other approaches.
+# Chords including them buttons are _awkward_, and usually require a hgrip shift,
+# so they aren't terribly useful.
+
+# Probably the answer is 'sticky' thumb buttons, but I need to see how often I get
+# confused about what buttons are _stuck_.
 
 T2::
   2R: ctrl+d
-  1R 2R: cmd+c
   2M: ctrl+c
-  1R 2M: cmd+v
   2L: cmd+n
+
+  1R 2R: cmd+c
+  1R 2M: cmd+v
   1R 2L: cmd+x
+
   3R: cmd+l
   3M: cmd+k
   3L: cmd+f
+
   4R: cmd+w
   4M: cmd+t
   4L: cmd+q
