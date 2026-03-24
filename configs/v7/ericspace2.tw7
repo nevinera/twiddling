@@ -1,0 +1,141 @@
+key_repeat: false
+haptic: false
+nav_direction: 1
+t1_modifier: l_command
+t2_modifier: num
+t3_modifier: l_shift
+t4_modifier: num
+f0l_dedicated: none
+f0m_dedicated: none
+f0r_dedicated: none
+t0_dedicated: none
+=====
+F1L: backspace
+F1M: space
+F1R: tab
+F2L: i
+F1L F2L: 1
+F1M F2L: c
+F1R F2L: -
+F2M: e
+F1L F2M: 4
+F1M F2M: d
+F1R F2M: enter
+F2R: o
+F1L F2R: 7
+F1M F2R: u
+F1R F2R: .
+F3L: n
+F1L F3L: 2
+F1M F3L: f
+F1R F3L: /
+F1L F2L F3L: 0
+F1M F2L F3L: b
+F1R F2L F3L: ~
+F1L F2M F3L: [
+F1R F2R F3L: @
+F3M: t
+F1L F3M: 5
+F1M F3M: l
+F1R F3M: !
+F1L F2L F3M: +
+F1L F2M F3M: (
+F1M F2M F3M: p
+F1R F2M F3M: :
+F1R F2R F3M: ?
+F3R: r
+F1L F3R: 8
+F1M F3R: w
+F1R F3R: ,
+F1L F2L F3R: -
+F1L F2M F3R: {
+F1L F2R F3R: ^
+F1M F2R F3R: v
+F1R F2R F3R: ;
+F4L: a
+F1L F4L: 3
+F1M F4L: g
+F1R F4L: \
+F1L F2L F4L: =
+F1L F2M F4L: ]
+F1R F2R F4L: %
+F1L F3L F4L: .
+F1M F3L F4L: j
+F1R F3L F4L: &
+F1L F2L F3L F4L: enter
+F1M F2L F3L F4L: z
+F1R F2L F3L F4L: |
+F1L F2M F3L F4L: <
+F4M: h
+F1L F4M: 6
+F1M F4M: m
+F1R F4M: *
+F1L F2L F4M: *
+F1L F2M F4M: )
+F1R F2R F4M: $
+F1L F3M F4M: ,
+F1M F3M F4M: k
+F1R F3M F4M: `
+F1L F2M F3M F4M: $
+F1M F2M F3M F4M: q
+F1R F2M F3M F4M: =
+F4R: s
+F1L F4R: 9
+F1M F4R: y
+F1R F4R: '
+F1L F2L F4R: /
+F1L F2M F4R: }
+F1R F2R F4R: #
+F1L F3R F4R: ~
+F1M F3R F4R: x
+F1R F3R F4R: "
+F1L F2M F3R F4R: >
+F1L F2R F3R F4R: %
+F1M F2R F3R F4R: esc
+F1R F2R F3R F4R: _
+F1L: left_click
+F1M: middle_click
+F1R: right_click
+F4L: speed_decrease
+F4M: scroll_toggle
+F4R: speed_increase
+
+T2::
+  F2L: ctrl+d
+  F1L F2L: cmd+c
+  F2M: ctrl+c
+  F1L F2M: cmd+v
+  F2R: cmd+n
+  F1L F2R: cmd+x
+  F3L: cmd+l
+  F3M: cmd+k
+  F3R: cmd+f
+  F4L: cmd+w
+  F4M: cmd+t
+  F4R: cmd+q
+
+T4::
+  F1L: ctrl+y
+  F1M: up
+  F1R: page_up
+  F2L: alt+f
+  F2M: right
+  F2R: end
+  F3L: alt+b
+  F2L F3L: ctrl+cmd+up
+  F3M: left
+  F3R: home
+  F2R F3R: ctrl+cmd+enter
+  F4L: ctrl+e
+  F1L F4L: ctrl+cmd+left
+  F4M: down
+  F4R: page_down
+  F1R F4R: ctrl+cmd+right
+  F1R F2R F3R F4R: ctrl+cmd+enter
+  F0L: ctrl+tab
+  F0M: cmd+`
+  F0R: cmd+tab
+
+T14 F4L: speed_cycle
+
+T23: mouse_toggle

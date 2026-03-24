@@ -1,0 +1,12 @@
+key_repeat: false
+=====
+F1L: left_click
+F1M: middle_click
+F1R: right_click
+F4L: speed_decrease
+F4M: scroll_toggle
+F4R: speed_increase
+
+T14 F4L: speed_cycle
+
+T23: mouse_toggle
