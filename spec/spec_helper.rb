@@ -7,19 +7,18 @@ if ENV["SIMPLECOV"]
 
   class ProblemsFormatter
     def format(result)
-      warn result.groups.map { |name, files| format_group(name, files) }
-    end
-
-    private
-
-    def format_group(name, files)
-      problem_files = files.select { |f| f.covered_percent < 100.0 }
-      if problem_files.any?
-        header = "#{name}: coverage missing\n"
-        rows = problem_files.map { |f| "    #{f.filename} (#{f.covered_percent.round(2)}%)\n" }
-        ([header] + rows).join
+      all_files = if result.groups.any?
+        result.groups.flat_map { |_name, group_files| group_files }
       else
-        "#{name}: fully covered\n"
+        result.files
+      end
+
+      problem_files = all_files.select { |f| f.covered_percent < 100.0 }
+      if problem_files.any?
+        warn "Coverage gaps:"
+        problem_files.each { |f| warn "  #{f.filename} (#{f.covered_percent.round(2)}%)" }
+      else
+        warn "All files fully covered"
       end
     end
   end
