@@ -59,24 +59,26 @@ module Twiddling
         def build_chord_tree(numbered)
           root = []
           stack = [[-1, root]]
-
-          numbered.each do |num, line|
-            next if line.strip.empty?
-            depth = indent_depth(line)
-            content = line.strip
-
-            stack.pop while stack.last[0] >= depth
-
-            if content.end_with?("::")
-              scope = ChordScopeLine.new(line_number: num, line_text: content)
-              stack.last[1] << scope
-              stack.push([depth, scope.children])
-            else
-              stack.last[1] << ChordLine.new(line_number: num, line_text: content)
-            end
-          end
-
+          numbered.each { |num, line| add_chord_item(num, line, stack) }
           root
+        end
+
+        def add_chord_item(num, line, stack)
+          return if line.strip.empty?
+          depth = indent_depth(line)
+          content = line.strip
+          stack.pop while stack.last[0] >= depth
+          push_chord_node(num, content, depth, stack)
+        end
+
+        def push_chord_node(num, content, depth, stack)
+          if content.end_with?("::")
+            scope = ChordScopeLine.new(line_number: num, line_text: content)
+            stack.last[1] << scope
+            stack.push([depth, scope.children])
+          else
+            stack.last[1] << ChordLine.new(line_number: num, line_text: content)
+          end
         end
 
         def indent_depth(line)
