@@ -183,7 +183,18 @@ T1 F1M: space
 T1 F2M: "hello"
 ```
 
-Groups do not nest. A group ends when a non-indented line is
+Groups can be nested. An indented `::` header inside a group opens a
+child scope whose buttons are unioned with the parent's:
+
+```text
+1M::
+  2M: y       # equivalent to: 1M 2M: y
+  2M::
+    3M: n     # equivalent to: 1M 2M 3M: n
+  4M: z       # equivalent to: 1M 4M: z
+```
+
+A group ends when a line at the same or shallower indent is
 encountered.
 
 ### Grouping on output
