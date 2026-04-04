@@ -144,6 +144,23 @@ describe Twiddling::V7::Tw7::Parser do
       d_chord = config.chords.find { |c| c.key_name == "d" }
       expect(d_chord.bitmask & 0x1000).to eq(0)
     end
+
+    it "unions nested scope buttons with all enclosing scopes" do
+      tw7 = "1M::\n  2M: y\n  2M::\n    3M: n\n"
+      config = described_class.new(tw7).parse
+      n_chord = config.chords.find { |c| c.key_name == "n" }
+      y_chord = config.chords.find { |c| c.key_name == "y" }
+      expect(y_chord.bitmask & 0x0044).to eq(0x0044)  # 1M | 2M
+      expect(n_chord.bitmask & 0x0444).to eq(0x0444)  # 1M | 2M | 3M
+    end
+
+    it "returns to the parent scope after a nested scope ends" do
+      tw7 = "1M::\n  2M::\n    3M: a\n  4M: b\n"
+      config = described_class.new(tw7).parse
+      b_chord = config.chords.find { |c| c.key_name == "b" }
+      expect(b_chord.bitmask & 0x0004).to eq(0x0004)  # 1M set
+      expect(b_chord.bitmask & 0x0400).to eq(0x0000)  # 3M not set
+    end
   end
 
   describe "error handling" do
